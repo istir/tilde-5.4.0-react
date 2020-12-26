@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import React from "react";
+import Clock from "./Clock";
+// import "./consoleSmall";
+import Config from "./Config.json";
+import Console from "./console";
+// const Clock = React.lazy(() => import("./Clock"));
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div
+        className="Background"
+        style={{
+          backgroundImage: `url(${Config.background})`,
+          filter: `blur(${Config.blurStrength}px) brightness(${
+            1 - Config.dimPercentage / 100
+          })`,
+        }}
+      ></div>
+      {/* <div className="Clock"> */}
+      <Console />
+      {/* <Clock /> */}
+      {/* <div className="Clock">TEXT</div> */}
+      {/* </div> */}
     </div>
   );
 }

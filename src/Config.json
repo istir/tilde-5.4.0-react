@@ -1,0 +1,46 @@
+{
+  "background": "http://localhost:8080/Code/javascript/git/tilde-5.4.0-react/src/__original_drawn_by_kobuta__0efad39e7c62af665177a81d6b581947.jpg",
+  "blurStrength": "10",
+  "dimPercentage": "10",
+  "color": "#383e42",
+  "shadowColor": "rgba(0,0,0,0.6)",
+  "shadowStrength": "0px 1px 4px",
+  "searchEngine": "https://duckduckgo.com/?q=",
+  "bookmarks": [
+    {
+      "title": "test",
+      "list": [
+        {
+          "key": "g",
+          "name": "Gmail",
+          "url": "https://mail.google.com/mail/u/0/"
+        },
+        { "key": "t", "name": "Twitter", "url": "https://twitter.com/" }
+      ]
+    },
+    {
+      "title": "test2",
+      "list": [
+        {
+          "key": "g2",
+          "name": "Gmail",
+          "url": "https://mail.google.com/mail/u/0/"
+        },
+        { "key": "t2", "name": "Twitter", "url": "https://twitter.com/" },
+        { "key": "t2", "name": "Twitter", "url": "https://twitter.com/" },
+        { "key": "t2", "name": "Twitter", "url": "https://twitter.com/" }
+      ]
+    },
+    {
+      "title": "test2",
+      "list": [
+        {
+          "key": "g2",
+          "name": "Gmail",
+          "url": "https://mail.google.com/mail/u/0/"
+        },
+        { "key": "t2", "name": "Twitter", "url": "https://twitter.com/" }
+      ]
+    }
+  ]
+}
