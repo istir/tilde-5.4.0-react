@@ -6,6 +6,7 @@ import Clock from "./Clock";
 import Config from "./Config.json";
 import Console from "./console";
 import "./owfont-master/css/owfont-regular.css";
+import Background from "./Background";
 // const Clock = React.lazy(() => import("./Clock"));
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         }}
       ></div>
       {/* <div className="Clock"> */}
+      {/* <Background /> */}
       <Console />
       {/* <Clock /> */}
       {/* <div className="Clock">TEXT</div> */}
