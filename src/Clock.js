@@ -43,6 +43,7 @@ class Clock extends React.Component {
       //is this ok?
       <div
         className={`Clock ${this.state.isToggled ? "small" : "big"}`}
+        style={{ color: Config.textColor }}
         onClick={this.toggle.bind(this)}
       >
         <div

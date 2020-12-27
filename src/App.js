@@ -5,6 +5,7 @@ import Clock from "./Clock";
 // import "./consoleSmall";
 import Config from "./Config.json";
 import Console from "./console";
+import "./owfont-master/css/owfont-regular.css";
 // const Clock = React.lazy(() => import("./Clock"));
 
 function App() {

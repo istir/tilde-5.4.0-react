@@ -3,44 +3,71 @@
   "blurStrength": "10",
   "dimPercentage": "10",
   "color": "#383e42",
+  "textColor": "#fafafa",
+  "iconColor": "#fafafa",
   "shadowColor": "rgba(0,0,0,0.6)",
   "shadowStrength": "0px 1px 4px",
   "searchEngine": "https://duckduckgo.com/?q=",
+  "weatherUnit": "metric",
+  "weatherLocation": "auto",
+  "weatherCoordinates": [51.4049607501142, 21.15317029465331],
   "bookmarks": [
     {
-      "title": "test",
+      "title": "WORK",
       "list": [
         {
           "key": "g",
           "name": "Gmail",
           "url": "https://mail.google.com/mail/u/0/"
         },
-        { "key": "t", "name": "Twitter", "url": "https://twitter.com/" }
+        {
+          "key": "wu",
+          "name": "WU",
+          "url": "https://euczelnia.uniwersytetradom.pl/"
+        },
+        {
+          "key": "wteii",
+          "name": "WTEiI",
+          "url": "https://old.uniwersytetradom.pl/redirect.php?action=setcategory&id=741"
+        },
+        { "key": "uth", "name": "UTH", "url": "https://uniwersytetradom.pl/" }
       ]
     },
     {
-      "title": "test2",
+      "title": "LURK",
       "list": [
+        { "key": "t", "name": "Twitter", "url": "https://twitter.com/" },
+        { "key": "r", "name": "Reddit", "url": "https://www.reddit.com/" },
         {
-          "key": "g2",
-          "name": "Gmail",
-          "url": "https://mail.google.com/mail/u/0/"
+          "key": "y",
+          "name": "YouTube",
+          "url": "https://youtube.com/feed/subscriptions"
         },
-        { "key": "t2", "name": "Twitter", "url": "https://twitter.com/" },
-        { "key": "t2", "name": "Twitter", "url": "https://twitter.com/" },
-        { "key": "t2", "name": "Twitter", "url": "https://twitter.com/" }
+        { "key": "ttv", "name": "Twitch", "url": "https://twitch.tv/" }
       ]
     },
     {
-      "title": "test2",
+      "title": "OTHER",
       "list": [
         {
-          "key": "g2",
-          "name": "Gmail",
-          "url": "https://mail.google.com/mail/u/0/"
+          "key": "op",
+          "name": "op.gg",
+          "url": "https://eune.op.gg/summoner/userName=istir"
         },
-        { "key": "t2", "name": "Twitter", "url": "https://twitter.com/" }
+        { "key": "d", "name": "Diki", "url": "https://www.diki.pl/" },
+        { "key": "ff", "name": "ff20", "url": "http://surrenderat20.net/" },
+        { "key": "u", "name": "ugg", "url": "http://u.gg/" }
       ]
     }
+  ],
+  "frequentNameShown": false,
+  "frequentBookmarks": [
+    { "name": "Twitter", "icon": "twitter", "url": "https://twitter.com/" },
+    {
+      "name": "YouTube",
+      "icon": "youtube",
+      "url": "https://youtube.com/feed/subscriptions"
+    },
+    { "name": "Reddit", "icon": "reddit", "url": "https://www.reddit.com/" }
   ]
 }

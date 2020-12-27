@@ -2,6 +2,7 @@ import React from "react";
 import Clock from "./Clock";
 import Form from "./Form";
 import Sites from "./Sites";
+import FrequentBookmarks from "./FrequentBookmarks";
 // class ConsoleSmall extends React.Component {}
 // class ConsoleBig extends React.Component {}
 class Console extends React.Component {
@@ -23,13 +24,20 @@ class Console extends React.Component {
   render() {
     return (
       //is this ok?
-      <div className={`consoleSmall ${this.state.isToggled ? "small" : "big"}`}>
-        <Sites />
-        <div onClick={this.toggle.bind(this)}>
-          <Clock />
+      <div>
+        <div className="consoleSmall">
+          <div onClick={this.toggle.bind(this)}>
+            <Clock />
+          </div>
+
+          <Form />
         </div>
 
-        <Form />
+        {/* <div
+          className={`consoleSmall ${this.state.isToggled ? "small" : "big"}`}
+        >
+          <Sites class={`${this.state.isToggled ? "small" : "big"}`} />
+        </div> */}
       </div>
     );
   }

@@ -52,7 +52,7 @@ class Sites extends React.Component {
   }
 
   render() {
-    return <ul className="lists">{this.listItem}</ul>;
+    return <ul className={`lists ${this.props.class}`}>{this.listItem}</ul>;
   }
 }
 
