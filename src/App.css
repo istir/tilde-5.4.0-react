@@ -49,8 +49,8 @@ body {
   font-size: 5rem;
 }
 .searchForm {
-  display: grid;
-  position: absolute;
+  /* display: grid; */
+  position: relative;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -163,6 +163,7 @@ li {
   letter-spacing: 0;
   text-align: left;
   transition: width 0s;
+  margin-top: 20px;
   /* width: 100; */
 }
 .category {
@@ -208,12 +209,13 @@ li {
 }
 .frequentBookmarks {
   letter-spacing: 0;
-  position: absolute;
+  /* position: absolute; */
+  position: relative;
   margin-top: 40px;
 
   left: 50%;
   transform: translateX(-50%);
-  display: flex;
+  /* display: flex; */
   padding: 5px;
 }
 .frequentBookmarks > a {
@@ -235,9 +237,8 @@ li {
   vertical-align: center;
   left: 50%;
   transition: all 0.2s;
-  transform: translateX(
-    -90%
-  ); /*it's because <div> doesn't expand when I add <i> - it's width stays the same, I don't know what to do about it so w/e */
+  transform: translate(-90%, -105%);
+  /*it's because <div> doesn't expand when I add <i> - it's width stays the same, I don't know what to do about it so w/e */
 }
 
 .placeholderIcon {
@@ -246,4 +247,30 @@ li {
   margin-top: 2px;
   transform: translateY(-50%) !important;
   top: 50%;
+}
+
+.overlay {
+  position: fixed;
+  top: 50%;
+  /* margin-top: 330px; */
+  left: calc(50% - 30%);
+  visibility: visible;
+  overflow: hidden;
+  box-sizing: border-box;
+  width: 60%;
+  height: 50%;
+  opacity: 1;
+  background: var(--color-alpha);
+  /* border: 2px solid #fac0f2; */
+  /* box-shadow: 0px 0px 0px 7px #2f343f; */
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  font-size: 1.2rem;
+  transition: 0.3s;
+  /* z-index: 2; */
+  backdrop-filter: blur(50px);
+}
+.overlay.small {
+  visibility: hidden;
+  opacity: 0;
 }

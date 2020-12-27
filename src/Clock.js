@@ -52,7 +52,8 @@ class Clock extends React.Component {
             textShadow: `${Config.shadowStrength} ${Config.shadowColor}`,
           }}
         >
-          {this.state.date.getHours()}
+          {(this.state.date.getHours() < 10 ? "0" : "") +
+            this.state.date.getHours()}{" "}
         </div>
         <div
           className="Minutes"

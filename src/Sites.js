@@ -50,9 +50,20 @@ class Sites extends React.Component {
       <ListCategory listItems={site.list} categoryName={site.title} />
     ));
   }
-
+  // height() {
+  //   var bookmarks = document.getElementsByClassName("frequentBookmarks")[0];
+  //   var consoleSmall = document.getElementsByClassName("consoleSmall")[0];
+  //   var search = document.getElementsByClassName("searchInput")[0];
+  //   return (
+  //     bookmarks.clientHeight + consoleSmall.clientHeight + search.clientHeight
+  //   );
+  // }
   render() {
-    return <ul className={`lists ${this.props.class}`}>{this.listItem}</ul>;
+    return (
+      <div style={this.props.style} className={`overlay ${this.props.class}`}>
+        <ul className={`lists ${this.props.class}`}>{this.listItem}</ul>
+      </div>
+    );
   }
 }
 

@@ -25,6 +25,26 @@ class Console extends React.Component {
     return (
       //is this ok?
       <div>
+        {
+          /* <div
+          className={`consoleSmall ${this.state.isToggled ? "small" : "big"}`}
+        >*/
+          <Sites
+            style={{
+              transform:
+                typeof document.getElementsByClassName("consoleSmall")[0] !=
+                "undefined"
+                  ? `translateY(${
+                      document.getElementsByClassName("consoleSmall")[0]
+                        .clientHeight /
+                        2 +
+                      10
+                    }px)`
+                  : "translateY(0px)",
+            }}
+            class={`${this.state.isToggled ? "small" : "big"}`}
+          />
+        }
         <div className="consoleSmall">
           <div onClick={this.toggle.bind(this)}>
             <Clock />
@@ -32,12 +52,6 @@ class Console extends React.Component {
 
           <Form />
         </div>
-
-        {/* <div
-          className={`consoleSmall ${this.state.isToggled ? "small" : "big"}`}
-        >
-          <Sites class={`${this.state.isToggled ? "small" : "big"}`} />
-        </div> */}
       </div>
     );
   }
