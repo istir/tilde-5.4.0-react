@@ -52,7 +52,7 @@ class Weather extends React.Component {
   componentDidMount() {
     this.getCurrentLocation((callback) => {
       // console.log(callback);
-      console.log(callback);
+      // console.log(callback);
       this.setState((state) => ({ location: callback }));
       weather.setCoordinate(
         this.state.location.coords.latitude,
@@ -101,7 +101,7 @@ class Weather extends React.Component {
       >
         {this.state.temperature === null ? "" : this.state.temperature}
         <i
-          class={`placeholderIcon owf owf-${this.state.icon}-${
+          className={`placeholderIcon owf owf-${this.state.icon}-${
             this.state.isNight ? `n` : `d`
           }`}
         ></i>
@@ -114,6 +114,7 @@ class Form extends React.Component {
   constructor(props) {
     super(props);
     this.state = { hidePlaceholder: false };
+    this._target = React.createRef();
   }
 
   togglePlaceholder() {
@@ -122,42 +123,51 @@ class Form extends React.Component {
   }
 
   submitForm(e) {
+    // console.log(e);
+    // console.log(this._target.current.value);
     window.open(
-      isUrl(e.target.children[0].value)
-        ? e.target.children[0].value
-        : Config.searchEngine + e.target.children[0].value,
+      isUrl(this._target.current.value)
+        ? this._target.current.value
+        : Config.searchEngine + this._target.current.value,
       "_parent"
     );
+    this._target.current.value = "";
     e.preventDefault();
     // console.log();
   }
   render() {
     return (
-      <form onSubmit={this.submitForm.bind(this)} className={`searchForm`}>
+      <form
+        onSubmit={this.submitForm.bind(this)}
+        className={`searchForm ${this.props.class}`}
+      >
         {/* <i class="owf owf-803"></i> */}
-        <input
-          // className={`searchInput ${this.state.isSmall ? "small" : "big"}`}
-          className="searchInput"
-          type="text"
-          // placeholder={`${this.state.hidePlaceholder ? "" : "EB28"}`}
-          onFocus={this.togglePlaceholder.bind(this)}
-          onBlur={this.togglePlaceholder.bind(this)}
-          // onClick={this.toggle.bind(this)}
-          style={{
-            boxShadow: `${Config.shadowStrength} ${Config.shadowColor}`,
-            backgroundColor: `${Config.color}`,
-            color:
-              fontColorContrast(`${Config.color}`) == "#ffffff"
-                ? "#fafafa"
-                : "#0a0a0a",
-          }}
-        ></input>
-        {this.state.hidePlaceholder ? (
-          <Weather show="false" />
-        ) : (
-          <Weather show="true" />
-        )}
-        <FrequentBookmarks />
+        <div style={{ position: "relative" }}>
+          <input
+            // className={`searchInput ${this.state.isSmall ? "small" : "big"}`}
+            ref={this._target}
+            className="searchInput"
+            type="text"
+            // placeholder={`${this.state.hidePlaceholder ? "" : "EB28"}`}
+            onFocus={this.togglePlaceholder.bind(this)}
+            onBlur={this.togglePlaceholder.bind(this)}
+            // onClick={this.toggle.bind(this)}
+            style={{
+              boxShadow: `${Config.shadowStrength} ${Config.shadowColor}`,
+              backgroundColor: `${Config.color}`,
+              color:
+                fontColorContrast(`${Config.color}`) == "#ffffff"
+                  ? "#fafafa"
+                  : "#0a0a0a",
+            }}
+          ></input>
+          {this.state.hidePlaceholder ? (
+            <Weather show="false" />
+          ) : (
+            <Weather show="true" />
+          )}
+        </div>
+        {this.props.renderBookmarks ? <FrequentBookmarks /> : ""}
         {/* <Weather /> */}
       </form>
     );

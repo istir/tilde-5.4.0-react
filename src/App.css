@@ -22,6 +22,7 @@ body {
   position: fixed;
   transform: scale(1.1);
   background-size: cover;
+  background-position: center;
 }
 
 .consoleSmall {
@@ -31,7 +32,9 @@ body {
   letter-spacing: 6px;
   /* width: 100%; */
   /* width: 20px; */
-  left: 50%;
+  top: calc(50% - 150px);
+  height: 300px;
+  left: calc(50% - 150px);
   bottom: 50%;
   width: 300px;
   text-align: center;
@@ -40,13 +43,18 @@ body {
 
   /* display: flex; */
   /* margin: auto; */
-  -webkit-transform: translate(-50%, 50%);
-  transform: translate(-50%, 50%);
+  /* -webkit-transform: translate(-50%, 50%);
+  transform: translate(-50%, 50%); */
 }
 
 .Clock {
   display: inline-flex;
   font-size: 5rem;
+  z-index: 7;
+}
+
+.Clock.small {
+  transform: translate(50%, 50%);
 }
 .searchForm {
   /* display: grid; */
@@ -59,6 +67,7 @@ body {
   text-align: center;
   border: 0;
   border-radius: 10px;
+
   font-size: 19px;
   font-family: "Product Sans", sans-serif;
   z-index: 3;
@@ -72,10 +81,10 @@ body {
 .Minutes {
   text-align: left;
   width: 50%;
-  margin-left: 5px;
+  margin-left: 10px;
 }
 .Hours {
-  margin-right: 5px;
+  margin-right: 10px;
   text-align: right;
   width: 50%;
 }
@@ -164,6 +173,8 @@ li {
   text-align: left;
   transition: width 0s;
   margin-top: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
   /* width: 100; */
 }
 .category {
@@ -233,14 +244,26 @@ li {
   position: absolute;
   z-index: 10;
   pointer-events: none;
-  font-size: 1.5em;
+  font-size: 25px;
   vertical-align: center;
-  left: 50%;
+  /* left: 50%; */
   transition: all 0.2s;
-  transform: translate(-90%, -105%);
+  top: 0%;
+  letter-spacing: 6px;
+  font-family: "Product Sans", sans-serif;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+
+  /* transform: translate(-50%, -50%); */
+  /* display: flex; */
+  /* transform: translate(-90%, -105%); */
   /*it's because <div> doesn't expand when I add <i> - it's width stays the same, I don't know what to do about it so w/e */
 }
-
+.placeholderText > .owf {
+  position: relative;
+  /* display: contents; */
+}
 .placeholderIcon {
   position: absolute;
   margin-left: -5px;
@@ -250,27 +273,118 @@ li {
 }
 
 .overlay {
-  position: fixed;
-  top: 50%;
-  /* margin-top: 330px; */
-  left: calc(50% - 30%);
-  visibility: visible;
+  /* visibility: visible; */
   overflow: hidden;
   box-sizing: border-box;
-  width: 60%;
-  height: 50%;
   opacity: 1;
-  background: var(--color-alpha);
-  /* border: 2px solid #fac0f2; */
-  /* box-shadow: 0px 0px 0px 7px #2f343f; */
+  /* background: #fff; */
   border-radius: 10px;
   box-shadow: var(--shadow);
   font-size: 1.2rem;
-  transition: 0.3s;
+  /* transition: 0.3s; */
   /* z-index: 2; */
   backdrop-filter: blur(50px);
+  position: absolute;
+  min-width: 66vw;
+  min-height: 50vh;
+  max-width: 90vw;
+  max-height: 90vh;
+  /* width: 50vw;
+  height: 50vh; */
+  /* left: 25vw;
+  top: 25vh; */
+  /* margin-left: -50%; */
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  /* filter: invert(1); */
+  /* transition-duration: 0s; */
 }
-.overlay.small {
+/* .overlay.small {
   visibility: hidden;
   opacity: 0;
+} */
+.overlayParent {
+  display: block;
+  position: fixed;
+
+  z-index: 2;
+  width: 100vw;
+  height: 100vh;
+}
+
+.overlayParent-enter {
+  opacity: 0;
+  transform: scale(0.9);
+  transform: translate(-50%, -55%);
+
+  /* transform: translateY(-30px); */
+  transition: opacity 300ms, transform 300ms;
+}
+
+.overlayParent-enter-active {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+
+  transition: opacity 300ms, transform 300ms;
+}
+.overlayParent-exit {
+  opacity: 1;
+}
+.overlayParent-exit-active {
+  opacity: 0;
+  transform: scale(0.9);
+  transform: translate(-50%, -55%);
+
+  transition: opacity 300ms, transform 300ms;
+}
+.Clock.overlayClock {
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  height: 1em;
+  margin: 5px;
+}
+
+.overlayForm1 > div > input {
+  width: 100px;
+}
+
+.overlayForm1 > div > input:focus {
+  width: 300px;
+}
+.overlayForm1 > div > input:hover {
+  width: 200px;
+}
+.overlayForm1 > div > input:hover:focus {
+  width: 300px;
+}
+.overlayForm1 {
+  bottom: 0px;
+  position: absolute;
+  left: 0px;
+  transform: translateX(0px);
+}
+.overlayForm-enter {
+  opacity: 0;
+  transform: scale(0.9);
+
+  transform: translateY(30px);
+}
+.overlayForm-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+
+  transition: opacity 300ms, transform 300ms, backdrop-filter 300ms;
+}
+.overlayForm-exit {
+  opacity: 1;
+}
+.overlayForm-exit-active {
+  opacity: 0;
+  transform: scale(0.9);
+  transform: translateY(30px);
+
+  transition: opacity 300ms, transform 300ms, backdrop-filter 300ms;
 }

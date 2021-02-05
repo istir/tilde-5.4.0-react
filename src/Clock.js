@@ -42,9 +42,11 @@ class Clock extends React.Component {
     return (
       //is this ok?
       <div
-        className={`Clock ${this.state.isToggled ? "small" : "big"}`}
+        // className={`Clock ${this.state.isToggled ? "small" : "big"}`}
+        className={`Clock ${this.props.class}`}
         style={{ color: Config.textColor }}
-        onClick={this.toggle.bind(this)}
+        // onClick={this.toggle.bind(this)}
+        onClick={this.props.onClick}
       >
         <div
           className="Hours"

@@ -3,6 +3,7 @@
   "blurStrength": "10",
   "dimPercentage": "10",
   "color": "#383e42",
+  "overlayColor": "#383e428c",
   "textColor": "#fafafa",
   "iconColor": "#fafafa",
   "shadowColor": "rgba(0,0,0,0.6)",

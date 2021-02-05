@@ -12,6 +12,7 @@ class FrequentBookmarks extends React.Component {
 
     this.listItem = Config.frequentBookmarks.map((site) => (
       <a
+        key={site.url}
         style={{
           color: Config.iconColor,
           filter: `drop-shadow(${Config.shadowStrength} ${Config.shadowColor})`,
