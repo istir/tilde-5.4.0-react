@@ -1,24 +1,25 @@
 {
   "files": {
-    "main.css": "/tilde-5.4.0-react/static/css/main.c359446c.chunk.css",
-    "main.js": "/tilde-5.4.0-react/static/js/main.6ac9e62c.chunk.js",
-    "main.js.map": "/tilde-5.4.0-react/static/js/main.6ac9e62c.chunk.js.map",
-    "runtime-main.js": "/tilde-5.4.0-react/static/js/runtime-main.03fd4bd6.js",
-    "runtime-main.js.map": "/tilde-5.4.0-react/static/js/runtime-main.03fd4bd6.js.map",
-    "static/js/2.20d67980.chunk.js": "/tilde-5.4.0-react/static/js/2.20d67980.chunk.js",
-    "static/js/2.20d67980.chunk.js.map": "/tilde-5.4.0-react/static/js/2.20d67980.chunk.js.map",
-    "static/js/3.38f7b825.chunk.js": "/tilde-5.4.0-react/static/js/3.38f7b825.chunk.js",
-    "static/js/3.38f7b825.chunk.js.map": "/tilde-5.4.0-react/static/js/3.38f7b825.chunk.js.map",
+    "main.css": "/tilde-5.4.0-react/static/css/main.c4c8f201.chunk.css",
+    "main.js": "/tilde-5.4.0-react/static/js/main.b860b678.chunk.js",
+    "main.js.map": "/tilde-5.4.0-react/static/js/main.b860b678.chunk.js.map",
+    "runtime-main.js": "/tilde-5.4.0-react/static/js/runtime-main.3f0266a8.js",
+    "runtime-main.js.map": "/tilde-5.4.0-react/static/js/runtime-main.3f0266a8.js.map",
+    "static/js/2.5843ce66.chunk.js": "/tilde-5.4.0-react/static/js/2.5843ce66.chunk.js",
+    "static/js/2.5843ce66.chunk.js.map": "/tilde-5.4.0-react/static/js/2.5843ce66.chunk.js.map",
+    "static/js/3.d896af08.chunk.js": "/tilde-5.4.0-react/static/js/3.d896af08.chunk.js",
+    "static/js/3.d896af08.chunk.js.map": "/tilde-5.4.0-react/static/js/3.d896af08.chunk.js.map",
     "index.html": "/tilde-5.4.0-react/index.html",
-    "static/css/main.c359446c.chunk.css.map": "/tilde-5.4.0-react/static/css/main.c359446c.chunk.css.map",
-    "static/js/2.20d67980.chunk.js.LICENSE.txt": "/tilde-5.4.0-react/static/js/2.20d67980.chunk.js.LICENSE.txt",
+    "static/css/main.c4c8f201.chunk.css.map": "/tilde-5.4.0-react/static/css/main.c4c8f201.chunk.css.map",
+    "static/js/2.5843ce66.chunk.js.LICENSE.txt": "/tilde-5.4.0-react/static/js/2.5843ce66.chunk.js.LICENSE.txt",
+    "static/media/GoogleSans.css": "/tilde-5.4.0-react/static/media/GoogleSans-Regular.bec0591b.ttf",
     "static/media/logo.6ce24c58.svg": "/tilde-5.4.0-react/static/media/logo.6ce24c58.svg",
     "static/media/owfont-regular.css": "/tilde-5.4.0-react/static/media/owfont-regular.77585afb.eot"
   },
   "entrypoints": [
-    "static/js/runtime-main.03fd4bd6.js",
-    "static/js/2.20d67980.chunk.js",
-    "static/css/main.c359446c.chunk.css",
-    "static/js/main.6ac9e62c.chunk.js"
+    "static/js/runtime-main.3f0266a8.js",
+    "static/js/2.5843ce66.chunk.js",
+    "static/css/main.c4c8f201.chunk.css",
+    "static/js/main.b860b678.chunk.js"
   ]
 }
