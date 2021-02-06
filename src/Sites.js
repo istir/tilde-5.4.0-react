@@ -156,7 +156,11 @@ class Sites extends React.Component {
           {/* <ul className={`lists ${this.props.class}`}>{this.listItem}</ul> */}
           <ul className={`lists`}>{this.listItem}</ul>
           <Clock class="overlayClock" onClick={this.props.toggle.bind(this)} />
-          <Form class="overlayForm1" />
+          <Form
+            defaultText={this.props.defaultText}
+            setText={this.props.setText}
+            class="overlayForm1"
+          />
         </div>
       </CSSTransition>
       // </div>

@@ -121,7 +121,16 @@ class Form extends React.Component {
     // this.setState((this.state.hidePlaceholder = !this.state.hidePlaceholder));
     this.setState((state) => ({ hidePlaceholder: !state.hidePlaceholder }));
   }
+  showPlaceholder() {
+    this.setState({ hidePlaceholder: false });
+  }
+  hidePlaceholder() {
+    this.setState({ hidePlaceholder: true });
+  }
 
+  componentDidMount() {
+    this._target.current.focus();
+  }
   submitForm(e) {
     // console.log(e);
     // console.log(this._target.current.value);
@@ -134,6 +143,11 @@ class Form extends React.Component {
     this._target.current.value = "";
     e.preventDefault();
     // console.log();
+  }
+  ensureTextSimilarity() {
+    if (this._target.current) {
+      this.props.setText(this._target.current.value);
+    }
   }
   render() {
     return (
@@ -149,16 +163,37 @@ class Form extends React.Component {
             className="searchInput"
             type="text"
             // placeholder={`${this.state.hidePlaceholder ? "" : "EB28"}`}
-            onFocus={this.togglePlaceholder.bind(this)}
-            onBlur={this.togglePlaceholder.bind(this)}
+            onChange={() => {
+              this.ensureTextSimilarity();
+              if (this._target.current.value.length == 0) {
+                this.showPlaceholder();
+              } else {
+                this.hidePlaceholder();
+              }
+            }}
+            onFocus={() => {
+              if (this._target.current.value.length > 0) {
+                this.hidePlaceholder();
+              }
+            }}
+            // onBlur={this.togglePlaceholder.bind(this)}
+            onBlur={() => {
+              if (this._target.current.value.length == 0) {
+                this.showPlaceholder();
+                // console.log("focus lost");
+              }
+            }}
+            // onChangeCapture={this.togglePlaceholder.bind(this)}
             // onClick={this.toggle.bind(this)}
+            defaultValue={this.props.defaultText}
             style={{
               boxShadow: `${Config.shadowStrength} ${Config.shadowColor}`,
               backgroundColor: `${Config.color}`,
-              color:
-                fontColorContrast(`${Config.color}`) == "#ffffff"
+              color: this.state.hidePlaceholder
+                ? fontColorContrast(`${Config.color}`) == "#ffffff"
                   ? "#fafafa"
-                  : "#0a0a0a",
+                  : "#0a0a0a"
+                : "transparent",
             }}
           ></input>
           {this.state.hidePlaceholder ? (
