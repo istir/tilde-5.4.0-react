@@ -1,9 +1,10 @@
 import React from "react";
-import Config from "./Config.json";
+
 import FrequentBookmarks from "./FrequentBookmarks";
 var fontColorContrast = require("font-color-contrast");
 var isUrl = require("is-url");
 var weather = require("openweather-apis");
+var ls = require("local-storage");
 
 class Weather extends React.Component {
   constructor(props) {
@@ -11,11 +12,14 @@ class Weather extends React.Component {
 
     // this.props.show
 
-    weather.setAPPID("fa54ebb35a166dfa6a6ef9fe7b6dcf06");
-    weather.setUnits(Config.weatherUnit);
-    Config.weatherLocation != "auto"
-      ? weather.setCity(Config.weatherLocation)
-      : weather.setCoordinate(-1, 1);
+    weather.setAPPID(ls.get("weatherAPIKey"));
+    weather.setUnits(ls.get("weatherUnit"));
+    ls.get("weatherLocation") != "auto"
+      ? weather.setCity(ls.get("weatherLocation"))
+      : weather.setCoordinate(
+          ls.get("weatherCoordinates")[0],
+          ls.get("weatherCoordinates")[1]
+        );
     // console.log(this.getWeather());
     // var info = this.getWeather();
     // console.log(info);
@@ -54,28 +58,32 @@ class Weather extends React.Component {
       // console.log(callback);
       // console.log(callback);
       this.setState((state) => ({ location: callback }));
-      weather.setCoordinate(
-        this.state.location.coords.latitude,
-        this.state.location.coords.longitude
-      );
-      // weather.getTemperature((err, temp) => {
-      //   console.log(temp);
-      // });
-      // weather.getDescription((err, temp) => {
-      //   console.log(temp);
-      // });
-      this.getCurrentWeather((callback) => {
-        // console.log(callback);
-        this.setState((state) => ({
-          temperature: Math.round(callback.main.temp),
-          description: callback.weather[0].main,
-          icon: callback.cod,
-          isNight:
-            new Date().getHours() > 20 && new Date().getHours < 6
-              ? true
-              : false,
-        }));
-      });
+      try {
+        weather.setCoordinate(
+          this.state.location.coords.latitude,
+          this.state.location.coords.longitude
+        );
+        // weather.getTemperature((err, temp) => {
+        //   console.log(temp);
+        // });
+        // weather.getDescription((err, temp) => {
+        //   console.log(temp);
+        // });
+        this.getCurrentWeather((callback) => {
+          // console.log(callback);
+          this.setState((state) => ({
+            temperature: Math.round(callback.main.temp),
+            description: callback.weather[0].main,
+            icon: callback.cod,
+            isNight:
+              new Date().getHours() > 20 && new Date().getHours < 6
+                ? true
+                : false,
+          }));
+        });
+      } catch (error) {
+        console.log(error);
+      }
     });
     // return <span>{this.state.location.coords.latitude}</span>;
     // // console.log(this.state.location);
@@ -94,7 +102,7 @@ class Weather extends React.Component {
       <div
         className="placeholderText"
         style={{
-          color: Config.textColor,
+          color: ls.get("textColor"),
           filter: "brightness(40%)",
           opacity: this.props.show == "true" ? "1" : "0",
         }}
@@ -137,7 +145,7 @@ class Form extends React.Component {
     window.open(
       isUrl(this._target.current.value)
         ? this._target.current.value
-        : Config.searchEngine + this._target.current.value,
+        : ls.get("searchEngine") + this._target.current.value,
       "_parent"
     );
     this._target.current.value = "";
@@ -156,7 +164,12 @@ class Form extends React.Component {
         className={`searchForm ${this.props.class}`}
       >
         {/* <i class="owf owf-803"></i> */}
-        <div style={{ position: "relative" }}>
+        <div
+          style={{ position: "relative" }}
+          className={`${
+            this.props.isBlackingOut ? "blackingOut blackingOutFilter" : ""
+          }`}
+        >
           <input
             // className={`searchInput ${this.state.isSmall ? "small" : "big"}`}
             ref={this._target}
@@ -187,10 +200,10 @@ class Form extends React.Component {
             // onClick={this.toggle.bind(this)}
             defaultValue={this.props.defaultText}
             style={{
-              boxShadow: `${Config.shadowStrength} ${Config.shadowColor}`,
-              backgroundColor: `${Config.color}`,
+              boxShadow: `${ls.get("shadowStrength")} ${ls.get("shadowColor")}`,
+              backgroundColor: `${ls.get("color")}`,
               color: this.state.hidePlaceholder
-                ? fontColorContrast(`${Config.color}`) == "#ffffff"
+                ? fontColorContrast(`${ls.get("color")}`) == "#ffffff"
                   ? "#fafafa"
                   : "#0a0a0a"
                 : "transparent",
@@ -202,7 +215,11 @@ class Form extends React.Component {
             <Weather show="true" />
           )}
         </div>
-        {this.props.renderBookmarks ? <FrequentBookmarks /> : ""}
+        {this.props.renderBookmarks ? (
+          <FrequentBookmarks isBlackingOut={this.props.isBlackingOut} />
+        ) : (
+          ""
+        )}
         {/* <Weather /> */}
       </form>
     );

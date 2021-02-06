@@ -1,5 +1,6 @@
 {
-  "background": "https://source.unsplash.com/random/1920x1080",
+  "background": "https://images.unsplash.com/photo-1588392382834-a891154bca4d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D",
+
   "blurStrength": "10",
   "dimPercentage": "10",
   "color": "#383e42",
@@ -7,11 +8,14 @@
   "textColor": "#fafafa",
   "iconColor": "#fafafa",
   "timeout": 20000,
+  "blackingOutTimeout": 40000,
+  "shouldBlackOutSearch": true,
   "shadowColor": "rgba(0,0,0,0.6)",
   "shadowStrength": "0px 1px 4px",
   "overlayShadowColor": "rgba(0,0,0,0.6)",
   "overlayShadowStrength": "0px 1px 8px",
   "searchEngine": "https://duckduckgo.com/?q=",
+  "weatherAPIKey": "fa54ebb35a166dfa6a6ef9fe7b6dcf06",
   "weatherUnit": "metric",
   "weatherLocation": "auto",
   "weatherCoordinates": [51.4049607501142, 21.15317029465331],

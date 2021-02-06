@@ -4,53 +4,59 @@ import Form from "./Form";
 import Sites from "./Sites";
 import FrequentBookmarks from "./FrequentBookmarks";
 import { CSSTransition } from "react-transition-group";
-import Config from "./Config.json";
+// import Config from "./Config.json";
+var ls = require("local-storage");
 // class ConsoleSmall extends React.Component {}
 // class ConsoleBig extends React.Component {}
 class Console extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { isToggled: true, text: "" };
+    // this.state = { isToggled: this.props.isBlurred, text: "" };
+    this.state = { text: "" };
+    this.handleIdleTimeout();
   }
 
   componentDidMount() {
-    this.setState({ isToggled: true });
-    this.timerID = null;
+    // this.setState({ isToggled: this.props.isBlurred });
+    this.idleTimerID = null;
   }
 
   toggle() {
-    this.setState((state) => ({
-      isToggled: !state.isToggled,
-    }));
-    this.props.blurredState(!this.state.isToggled);
-    this.handleTimeout();
+    // this.setState((state) => ({
+    //   isToggled: !state.isToggled,
+    // }));
+    this.props.blurredState(!this.props.isBlurred);
+    this.handleIdleTimeout();
   }
 
-  handleTimeout() {
+  handleIdleTimeout() {
     // if (this.state.isToggled) {
     // console.log("???");
     // clearTimeout(this.timerID);
     //   this.clearTimeout();
     // } else if (!this.state.isToggled) {
-    if (Config.timeout > 0) {
-      this.setIdleTimeout(Config.timeout);
+    if (ls.get("timeout") > 0) {
+      this.setIdleTimeout(ls.get("timeout"));
     }
 
     // }
   }
   setIdleTimeout(value) {
-    this.clearTimeout();
-    this.timerID = setTimeout(() => {
-      this.setState({ isToggled: false });
+    this.clearIdleTimeout();
+    this.idleTimerID = setTimeout(() => {
+      // this.setState({ isToggled: false });
       this.props.blurredState(false);
+      // this.handleBlackingTimeout();
+      this.props.blackingOutTimeout();
     }, value);
   }
-  clearTimeout() {
+  clearIdleTimeout() {
     // console.log("clear");
-    if (this.timerID) {
-      clearTimeout(this.timerID);
+    if (this.idleTimerID) {
+      clearTimeout(this.idleTimerID);
     }
   }
+
   setSameText(text) {
     this.setState({ text: text });
     // console.log(this.state.text);
@@ -66,9 +72,9 @@ class Console extends React.Component {
         >*/
           <Sites
             setText={this.setSameText.bind(this)}
-            clearTimeout={this.handleTimeout.bind(this)}
+            clearTimeout={this.handleIdleTimeout.bind(this)}
             toggle={this.toggle.bind(this)}
-            shown={this.state.isToggled}
+            shown={this.props.isBlurred}
             defaultText={this.state.text}
             // class={`${this.state.isToggled ? "small" : "big"} slideUp`}
             class={`slideUp`}
@@ -76,7 +82,8 @@ class Console extends React.Component {
         }
 
         <CSSTransition
-          in={!this.state.isToggled}
+          // in={!this.state.isToggled}
+          in={!this.props.isBlurred}
           timeout={200}
           classNames="overlayForm"
           unmountOnExit
@@ -88,6 +95,7 @@ class Console extends React.Component {
             {/* </div> */}
 
             <Form
+              isBlackingOut={this.props.isBlackingOut}
               defaultText={this.state.text}
               setText={this.setSameText.bind(this)}
               class="backgroundForm"

@@ -1,3 +1,30 @@
+@media only screen and (max-width: 600px) {
+  .commandKey {
+    /* background-color: lightblue; */
+    display: none !important;
+  }
+  .command {
+    text-align: center !important;
+  }
+  .overlay {
+    min-height: 70vh !important;
+  }
+  .Clock.overlayClock {
+    left: 0 !important;
+    /* right: 0 !important; */
+    bottom: 50px !important;
+  }
+  .overlayForm1 > div > .searchInput {
+    transform: translateX(-50%) !important;
+    margin-left: 50% !important;
+  }
+  .overlayForm1 {
+    right: 0px !important;
+  }
+  .Background {
+    background-image: url("https://images.unsplash.com/photo-1592484939110-1f2ea1820782?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2113&q=80") !important;
+  }
+}
 body {
   position: absolute;
   top: 0;
@@ -7,11 +34,16 @@ body {
   margin: 0;
   padding: 0;
   /* color: #fafafa; */
-  font-family: "SF Pro Display", sans-serif;
+  font-family: "GoogleSansRegular", sans-serif;
   user-select: none;
+}
+h2 {
+  font-family: "GoogleSansBold", sans-serif;
 }
 .App {
   width: 100%;
+  height: 100%;
+  position: absolute;
 }
 .Background {
   text-align: center;
@@ -59,6 +91,7 @@ body {
   display: inline-flex;
   font-size: 5rem;
   z-index: 7;
+  cursor: pointer;
 }
 
 .Clock.small {
@@ -186,18 +219,74 @@ li {
   font-size: 1.2em;
   /* width: 100; */
 }
+
+@keyframes blackingOutBg {
+  0% {
+    background: rgba(0, 0, 0, 0);
+  }
+  10% {
+    background: rgba(0, 0, 0, 0.5);
+  }
+  100% {
+    background: rgba(0, 0, 0, 0.9);
+  }
+}
+@keyframes blackingOutFilter {
+  0% {
+    filter: brightness(1);
+  }
+  10% {
+    filter: brightness(0.5);
+  }
+  100% {
+    filter: brightness(0.1);
+  }
+}
+
+.blackingOut {
+  /* transition: 6s; */
+  animation-duration: 600s;
+}
+.blackingOutBackground {
+  /* background: rgba(0, 0, 0, 0.5); */
+  animation-name: blackingOutBg;
+}
+.blackingOutFilter {
+  /* filter: brightness(0.5); */
+  animation-name: blackingOutFilter;
+}
+/* .furtherBlackingOut {
+  transition: 12s !important;
+}
+.furtherBlackingOutBackground {
+  background: rgba(0, 0, 0, 0.9) !important;
+}
+.furtherBlackingOutBookmarks {
+  filter: brightness(0.9) !important;
+} */
 .category {
   width: 10em;
   margin-bottom: 0;
   /* max-width: 20%; */
 }
 .categoryName {
-  margin: 0 0 2em;
+  /* margin: 0 0 2em; */
+  margin: 0 !important;
   color: rgba(255, 255, 255, 0.6);
-  font-size: 0.7em;
-  letter-spacing: 0.2em;
+  font-size: 1.2em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   text-align: center;
+  display: none;
+}
+.command:hover .commandName {
+  /* background: #000; */
+  /* text-decoration: underline; */
+  /* color: #000; */
+  opacity: 1;
+}
+.command {
+  transition: 0.3s;
 }
 .command a {
   display: block;
@@ -227,6 +316,7 @@ li {
   position: relative;
   overflow: hidden;
   opacity: 0.7;
+  transition: 0.3s;
   /* transition: 0.2s; */
 }
 .frequentBookmarks {
@@ -295,6 +385,7 @@ li {
   /* transition: 0.3s; */
   /* z-index: 2; */
   backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(50px);
   position: absolute;
   min-width: 66vw;
   min-height: 50vh;
@@ -309,7 +400,7 @@ li {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-
+  border: 1px none transparent;
   /* filter: invert(1); */
   /* transition-duration: 0s; */
 }
@@ -428,4 +519,13 @@ li {
   /* transform: translateY(30px); */
 
   transition: opacity 300ms, transform 300ms, backdrop-filter 300ms;
+}
+
+.firstLaunchWindow {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background: #000;
+  z-index: 20;
+  color: #fff;
 }

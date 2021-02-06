@@ -1,9 +1,10 @@
-import Config from "./Config.json";
+// import Config from "./Config.json";
 import React from "react";
 import Console from "./console";
 import { CSSTransition } from "react-transition-group";
 import Clock from "./Clock";
 import Form from "./Form";
+var ls = require("local-storage");
 class ListCategory extends React.Component {
   constructor(props) {
     super(props);
@@ -29,7 +30,7 @@ class ListCategory extends React.Component {
     return (
       <li
         className="category"
-        style={{ maxWidth: `${100 / Config.bookmarks.length - 5}%` }}
+        style={{ maxWidth: `${100 / ls.get("bookmarks").length - 5}%` }}
       >
         <h2 className="categoryName">{this.props.categoryName}</h2>
         {this.listItem}
@@ -66,22 +67,24 @@ class Sites extends React.Component {
     this.state = {
       shown: true,
       // style: {
-      background: `${Config.overlayColor}`,
+      background: `${ls.get("overlayColor")}`,
       left: `0px`,
       top: `0px`,
       hideKeys: false,
       // },
     };
-    this.listItem = Config.bookmarks.map((site, index) => (
-      <ListCategory
-        hideKeys={this.state.hideKeys}
-        key={site.title}
-        listItems={site.list}
-        categoryName={site.title}
-      />
-    ));
+    this.listItem = ls
+      .get("bookmarks")
+      .map((site, index) => (
+        <ListCategory
+          hideKeys={this.state.hideKeys}
+          key={site.title}
+          listItems={site.list}
+          categoryName={site.title}
+        />
+      ));
     this._element = React.createRef();
-    window.addEventListener("resize", this.onWindowResized.bind(this));
+    // window.addEventListener("resize", this.onWindowResized.bind(this));
   }
   componentDidUpdate() {
     // console.log(this._element.current.clientHeight);
@@ -172,8 +175,10 @@ class Sites extends React.Component {
             this.props.clearTimeout();
           }}
           style={{
-            background: `${Config.overlayColor}`,
-            boxShadow: `${Config.overlayShadowStrength} ${Config.overlayShadowColor}`,
+            background: `${ls.get("overlayColor")}`,
+            boxShadow: `${ls.get("overlayShadowStrength")} ${ls.get(
+              "overlayShadowColor"
+            )}`,
             // left: this.state.left,
             // top: this.state.top,
           }}

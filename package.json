@@ -17,6 +17,7 @@
     "install": "^0.13.0",
     "is-url": "^1.2.4",
     "konva": "^7.2.2",
+    "local-storage": "^2.0.0",
     "npm": "^6.14.10",
     "openweather-apis": "^4.4.0",
     "react": "^17.0.1",
