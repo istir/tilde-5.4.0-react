@@ -20,7 +20,7 @@ body {
   height: 100%;
   display: block;
   position: fixed;
-  transform: scale(1.1);
+  /* transform: scale(1.1); */
   background-size: cover;
   background-position: center;
   transition: filter 300ms;
@@ -189,6 +189,7 @@ li {
 .category {
   width: 10em;
   margin-bottom: 0;
+  /* max-width: 20%; */
 }
 .categoryName {
   margin: 0 0 2em;
@@ -196,6 +197,7 @@ li {
   font-size: 0.7em;
   letter-spacing: 0.2em;
   text-transform: uppercase;
+  text-align: center;
 }
 .command a {
   display: block;

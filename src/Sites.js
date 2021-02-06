@@ -12,6 +12,7 @@ class ListCategory extends React.Component {
       (site) => (
         // <li>
         <ListItem
+          hideKeys={this.props.hideKeys}
           key={site.url}
           keyName={site.key}
           name={site.name}
@@ -24,8 +25,12 @@ class ListCategory extends React.Component {
   }
 
   render() {
+    // console.log(Config.bookmarks.length);
     return (
-      <li className="category">
+      <li
+        className="category"
+        style={{ maxWidth: `${100 / Config.bookmarks.length - 5}%` }}
+      >
         <h2 className="categoryName">{this.props.categoryName}</h2>
         {this.listItem}
       </li>
@@ -42,7 +47,11 @@ class ListItem extends React.Component {
       <ul>
         <li className="command">
           <a href={this.props.urlName}>
-            <span className="commandKey">{this.props.keyName}</span>
+            {this.props.hideKeys ? (
+              ""
+            ) : (
+              <span className="commandKey">{this.props.keyName}</span>
+            )}
             <span className="commandName">{this.props.name}</span>
           </a>
         </li>
@@ -53,21 +62,24 @@ class ListItem extends React.Component {
 class Sites extends React.Component {
   constructor(props) {
     super(props);
-    this.listItem = Config.bookmarks.map((site, index) => (
-      <ListCategory
-        key={site.title}
-        listItems={site.list}
-        categoryName={site.title}
-      />
-    ));
+
     this.state = {
       shown: true,
       // style: {
       background: `${Config.overlayColor}`,
       left: `0px`,
       top: `0px`,
+      hideKeys: false,
       // },
     };
+    this.listItem = Config.bookmarks.map((site, index) => (
+      <ListCategory
+        hideKeys={this.state.hideKeys}
+        key={site.title}
+        listItems={site.list}
+        categoryName={site.title}
+      />
+    ));
     this._element = React.createRef();
     window.addEventListener("resize", this.onWindowResized.bind(this));
   }
@@ -77,13 +89,29 @@ class Sites extends React.Component {
     // console.log(window.innerWidth);
   }
   onWindowResized() {
-    this.centerHorizontally();
-    this.centerVertically();
-    try {
-      console.log(this._element.current.clientWidth);
-    } catch (e) {}
+    // this.centerHorizontally();
+    // this.centerVertically();
+    // try {
+    //   console.log(this._element.current.clientWidth);
+    // } catch (e) {}
 
-    this.forceUpdate();
+    // this.forceUpdate();
+
+    if (window.innerWidth < 500) {
+      // console.log(window.innerWidth);
+      this.setState({ hideKeys: true });
+      // this.listItem = Config.bookmarks.map((site, index) => (
+      //   <ListCategory
+      //     hideKeys={this.state.hideKeys}
+      //     key={site.title}
+      //     listItems={site.list}
+      //     categoryName={site.title}
+      //   />
+      // ));
+      // this.forceUpdate();
+    } else {
+      this.setState({ hideKeys: false });
+    }
   }
   centerHorizontally() {
     try {
@@ -145,6 +173,7 @@ class Sites extends React.Component {
           }}
           style={{
             background: `${Config.overlayColor}`,
+            boxShadow: `${Config.overlayShadowStrength} ${Config.overlayShadowColor}`,
             // left: this.state.left,
             // top: this.state.top,
           }}
