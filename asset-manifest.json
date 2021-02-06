@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/tilde-5.4.0-react/static/css/main.c4d14325.chunk.css",
+    "main.css": "/tilde-5.4.0-react/static/css/main.cf5dcb9b.chunk.css",
     "main.js": "/tilde-5.4.0-react/static/js/main.b860b678.chunk.js",
     "main.js.map": "/tilde-5.4.0-react/static/js/main.b860b678.chunk.js.map",
     "runtime-main.js": "/tilde-5.4.0-react/static/js/runtime-main.3f0266a8.js",
@@ -10,7 +10,7 @@
     "static/js/3.d896af08.chunk.js": "/tilde-5.4.0-react/static/js/3.d896af08.chunk.js",
     "static/js/3.d896af08.chunk.js.map": "/tilde-5.4.0-react/static/js/3.d896af08.chunk.js.map",
     "index.html": "/tilde-5.4.0-react/index.html",
-    "static/css/main.c4d14325.chunk.css.map": "/tilde-5.4.0-react/static/css/main.c4d14325.chunk.css.map",
+    "static/css/main.cf5dcb9b.chunk.css.map": "/tilde-5.4.0-react/static/css/main.cf5dcb9b.chunk.css.map",
     "static/js/2.5843ce66.chunk.js.LICENSE.txt": "/tilde-5.4.0-react/static/js/2.5843ce66.chunk.js.LICENSE.txt",
     "static/media/GoogleSans.css": "/tilde-5.4.0-react/static/media/GoogleSans-Regular.bec0591b.ttf",
     "static/media/logo.6ce24c58.svg": "/tilde-5.4.0-react/static/media/logo.6ce24c58.svg",
@@ -19,7 +19,7 @@
   "entrypoints": [
     "static/js/runtime-main.3f0266a8.js",
     "static/js/2.5843ce66.chunk.js",
-    "static/css/main.c4d14325.chunk.css",
+    "static/css/main.cf5dcb9b.chunk.css",
     "static/js/main.b860b678.chunk.js"
   ]
 }
