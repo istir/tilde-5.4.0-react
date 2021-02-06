@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/tilde-5.4.0-react/static/css/main.6de4bafb.chunk.css",
-    "main.js": "/tilde-5.4.0-react/static/js/main.b52d6f39.chunk.js",
-    "main.js.map": "/tilde-5.4.0-react/static/js/main.b52d6f39.chunk.js.map",
+    "main.js": "/tilde-5.4.0-react/static/js/main.b249a719.chunk.js",
+    "main.js.map": "/tilde-5.4.0-react/static/js/main.b249a719.chunk.js.map",
     "runtime-main.js": "/tilde-5.4.0-react/static/js/runtime-main.3f0266a8.js",
     "runtime-main.js.map": "/tilde-5.4.0-react/static/js/runtime-main.3f0266a8.js.map",
     "static/js/2.5843ce66.chunk.js": "/tilde-5.4.0-react/static/js/2.5843ce66.chunk.js",
@@ -20,6 +20,6 @@
     "static/js/runtime-main.3f0266a8.js",
     "static/js/2.5843ce66.chunk.js",
     "static/css/main.6de4bafb.chunk.css",
-    "static/js/main.b52d6f39.chunk.js"
+    "static/js/main.b249a719.chunk.js"
   ]
 }
