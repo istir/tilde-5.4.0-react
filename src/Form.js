@@ -14,7 +14,7 @@ class Weather extends React.Component {
 
     weather.setAPPID(ls.get("weatherAPIKey"));
     weather.setUnits(ls.get("weatherUnit"));
-    ls.get("weatherLocation") != "auto"
+    ls.get("weatherLocation") !== "auto"
       ? weather.setCity(ls.get("weatherLocation"))
       : weather.setCoordinate(
           ls.get("weatherCoordinates")[0],
@@ -54,6 +54,9 @@ class Weather extends React.Component {
   }
 
   componentDidMount() {
+    this.timerID = setInterval(() => {
+      this.forceUpdate();
+    }, 1800);
     this.getCurrentLocation((callback) => {
       // console.log(callback);
       // console.log(callback);
@@ -91,7 +94,9 @@ class Weather extends React.Component {
     //   // console.log(temp);
     // });
   }
-
+  componentWillUnmount() {
+    clearInterval(this.timerID);
+  }
   // style = {
   //   color:Config.textColor,
   //   filter:"brightness(40%)",
@@ -104,7 +109,7 @@ class Weather extends React.Component {
         style={{
           color: ls.get("textColor"),
           filter: "brightness(40%)",
-          opacity: this.props.show == "true" ? "1" : "0",
+          opacity: this.props.show === "true" ? "1" : "0",
         }}
       >
         {this.state.temperature === null ? "" : this.state.temperature}
@@ -167,7 +172,11 @@ class Form extends React.Component {
         <div
           style={{ position: "relative" }}
           className={`${
-            this.props.isBlackingOut ? "blackingOut blackingOutFilter" : ""
+            ls.get("shouldBlackOutSearch")
+              ? this.props.isBlackingOut
+                ? "blackingOut blackingOutFilter"
+                : ""
+              : ""
           }`}
         >
           <input
@@ -178,7 +187,7 @@ class Form extends React.Component {
             // placeholder={`${this.state.hidePlaceholder ? "" : "EB28"}`}
             onChange={() => {
               this.ensureTextSimilarity();
-              if (this._target.current.value.length == 0) {
+              if (this._target.current.value.length === 0) {
                 this.showPlaceholder();
               } else {
                 this.hidePlaceholder();
@@ -191,7 +200,7 @@ class Form extends React.Component {
             }}
             // onBlur={this.togglePlaceholder.bind(this)}
             onBlur={() => {
-              if (this._target.current.value.length == 0) {
+              if (this._target.current.value.length === 0) {
                 this.showPlaceholder();
                 // console.log("focus lost");
               }
@@ -203,7 +212,7 @@ class Form extends React.Component {
               boxShadow: `${ls.get("shadowStrength")} ${ls.get("shadowColor")}`,
               backgroundColor: `${ls.get("color")}`,
               color: this.state.hidePlaceholder
-                ? fontColorContrast(`${ls.get("color")}`) == "#ffffff"
+                ? fontColorContrast(`${ls.get("color")}`) === "#ffffff"
                   ? "#fafafa"
                   : "#0a0a0a"
                 : "transparent",

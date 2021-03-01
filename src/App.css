@@ -66,21 +66,21 @@ h2 {
   position: absolute;
 }
 .consoleSmall {
-  position: absolute;
+  /* position: absolute; */
   /* position: relative; */
 
   letter-spacing: 6px;
   /* width: 100%; */
   /* width: 20px; */
-  top: calc(50% - 150px);
+  /* top: calc(50% - 150px); */
   height: 300px;
-  left: calc(50% - 150px);
-  bottom: 50%;
+  /* left: calc(50% - 150px); */
+  /* bottom: 50%; */
   width: 300px;
   text-align: center;
   z-index: 1;
   /* transition: 0.5s; */
-
+  margin: auto;
   /* display: flex; */
   /* margin: auto; */
   /* -webkit-transform: translate(-50%, 50%);
@@ -95,7 +95,7 @@ h2 {
 }
 
 .Clock.small {
-  transform: translate(50%, 50%);
+  /* transform: translate(50%, 50%); */
 }
 .searchForm {
   /* display: grid; */
@@ -245,7 +245,9 @@ li {
 
 .blackingOut {
   /* transition: 6s; */
-  animation-duration: 600s;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+  animation-duration: 3600s;
 }
 .blackingOutBackground {
   /* background: rgba(0, 0, 0, 0.5); */
@@ -339,8 +341,7 @@ li {
   text-decoration: none;
   /* filter: drop-shadow(0px 1px 4px rgba(0, 0, 0, 0.6)); */
 }
-.svg-inline--fa {
-}
+
 .placeholderText {
   position: absolute;
   z-index: 10;
@@ -350,7 +351,7 @@ li {
   /* left: 50%; */
   transition: all 0.2s;
   top: 0%;
-  letter-spacing: 6px;
+  letter-spacing: normal !important;
   font-family: "Product Sans", sans-serif;
   height: 100%;
   width: 100%;
@@ -361,8 +362,10 @@ li {
   /* transform: translate(-90%, -105%); */
   /*it's because <div> doesn't expand when I add <i> - it's width stays the same, I don't know what to do about it so w/e */
 }
+
 .placeholderText > .owf {
   position: relative;
+  margin-left: 5px;
   /* display: contents; */
 }
 .placeholderIcon {
@@ -375,6 +378,7 @@ li {
 
 .overlay {
   /* visibility: visible; */
+  pointer-events: all;
   overflow: hidden;
   box-sizing: border-box;
   opacity: 1;
@@ -386,7 +390,7 @@ li {
   /* z-index: 2; */
   backdrop-filter: blur(50px);
   -webkit-backdrop-filter: blur(50px);
-  position: absolute;
+  /* position: absolute; */
   min-width: 66vw;
   min-height: 50vh;
   max-width: 90vw;
@@ -397,9 +401,10 @@ li {
   /* left: 25vw;
   top: 25vh; */
   /* margin-left: -50%; */
-  left: 50%;
+  margin: auto;
+  /* left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
   border: 1px none transparent;
   /* filter: invert(1); */
   /* transition-duration: 0s; */
@@ -419,16 +424,16 @@ li {
 
 .overlayParent-enter {
   opacity: 0;
-  transform-origin: 0 0;
-  transform: scale(0.9) translate(-50%, -50%);
-
+  /* transform-origin: 0 0; */
+  /* transform: scale(0.9) translate(-50%, -50%); */
+  transform: scale(0.9);
   /* transition: opacity 300ms, transform 300ms; */
 }
 
 .overlayParent-enter-active {
   opacity: 1;
-  transform: scale(1) translate(-50%, -50%);
-
+  /* transform: scale(1) translate(-50%, -50%); */
+  transform: scale(1);
   transition: 0.3s;
 }
 .overlayParent-exit {
@@ -436,8 +441,9 @@ li {
 }
 .overlayParent-exit-active {
   opacity: 0;
-  transform-origin: 0 0;
-  transform: scale(0.9) translate(-50%, -50%);
+  /* transform-origin: 0 0; */
+  /* transform: scale(0.9) translate(-50%, -50%); */
+  transform: scale(0.9);
   transition: opacity 300ms, transform 300ms;
 }
 /* 

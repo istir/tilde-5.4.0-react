@@ -1,6 +1,6 @@
 // import Config from "./Config.json";
 import React from "react";
-import Console from "./console";
+// import Console from "./console";
 import { CSSTransition } from "react-transition-group";
 import Clock from "./Clock";
 import Form from "./Form";
@@ -39,10 +39,6 @@ class ListCategory extends React.Component {
   }
 }
 class ListItem extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <ul>

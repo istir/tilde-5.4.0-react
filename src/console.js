@@ -2,7 +2,7 @@ import React from "react";
 import Clock from "./Clock";
 import Form from "./Form";
 import Sites from "./Sites";
-import FrequentBookmarks from "./FrequentBookmarks";
+// import FrequentBookmarks from "./FrequentBookmarks";
 import { CSSTransition } from "react-transition-group";
 // import Config from "./Config.json";
 var ls = require("local-storage");
@@ -70,6 +70,8 @@ class Console extends React.Component {
           /* <div
           className={`consoleSmall ${this.state.isToggled ? "small" : "big"}`}
         >*/
+        <div style={{display:"flex",width:"100vw",height:"100vh",position:"fixed",pointerEvents:"none"}}>
+
           <Sites
             setText={this.setSameText.bind(this)}
             clearTimeout={this.handleIdleTimeout.bind(this)}
@@ -79,6 +81,7 @@ class Console extends React.Component {
             // class={`${this.state.isToggled ? "small" : "big"} slideUp`}
             class={`slideUp`}
           />
+          </div>
         }
 
         <CSSTransition
@@ -88,6 +91,7 @@ class Console extends React.Component {
           classNames="overlayForm"
           unmountOnExit
         >
+        <div style={{display:"flex",width:"100vw",height:"100vh",position:"fixed"}}>
           <div className="consoleSmall">
             {/* <div onClick={this.toggle.bind(this)}> */}
             {/* <div> */}
@@ -101,6 +105,7 @@ class Console extends React.Component {
               class="backgroundForm"
               renderBookmarks={true}
             />
+          </div>
           </div>
         </CSSTransition>
       </div>

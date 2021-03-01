@@ -1,13 +1,13 @@
-import logo from "./logo.svg";
+// import logo from "./logo.svg";
 import "./App.css";
 import React from "react";
-import Clock from "./Clock";
+// import Clock from "./Clock";
 // import "./consoleSmall";
 // import Config from "./Config.json";
 import Console from "./console";
 import "./owfont-master/css/owfont-regular.css";
 import "./product-sans/GoogleSans.css";
-import Background from "./Background";
+// import Background from "./Background";
 import FirstLaunch from "./FirstLaunch";
 var ls = require("local-storage");
 // const Clock = React.lazy(() => import("./Clock"));
@@ -26,13 +26,19 @@ class App extends React.Component {
 
   componentDidMount() {
     document.body.addEventListener("keydown", (e) => {
-      if (document.activeElement == document.body) {
+      // console.log(e.code);
+      if (e.code === "Escape") {
+        this.setBlur(!this.state.blurred);
+      }
+      if (document.activeElement === document.body) {
         if (document.getElementsByTagName("input").length > 0) {
           document.getElementsByTagName("input")[0].focus();
         }
       }
     });
+
     document.body.addEventListener("mousemove", (e) => {
+      // console.log("move");
       this.setState({ blackingOut: false });
       this.handleBlackingTimeout();
     });

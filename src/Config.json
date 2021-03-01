@@ -19,26 +19,31 @@
   "weatherUnit": "metric",
   "weatherLocation": "auto",
   "weatherCoordinates": [51.4049607501142, 21.15317029465331],
+
   "bookmarks": [
     {
       "title": "WORK",
       "list": [
         {
-          "key": "g",
+          "key": "gm",
           "name": "Gmail",
           "url": "https://mail.google.com/mail/u/0/"
         },
         {
-          "key": "wu",
-          "name": "WU",
-          "url": "https://euczelnia.uniwersytetradom.pl/"
+          "key": "go",
+          "name": "Google",
+          "url": "https://google.com/"
         },
         {
-          "key": "wteii",
-          "name": "WTEiI",
-          "url": "https://old.uniwersytetradom.pl/redirect.php?action=setcategory&id=741"
+          "key": "ma",
+          "name": "Maps",
+          "url": "https://maps.google.com/"
         },
-        { "key": "uth", "name": "UTH", "url": "https://uniwersytetradom.pl/" }
+        {
+          "key": "mt",
+          "name": "Teams",
+          "url": "https://teams.microsoft.com/go#"
+        }
       ]
     },
     {
@@ -58,13 +63,17 @@
       "title": "OTHER",
       "list": [
         {
-          "key": "op",
-          "name": "op.gg",
-          "url": "https://eune.op.gg/summoner/userName=istir"
+          "key": "gh",
+          "name": "Github",
+          "url": "http://github.com/"
         },
-        { "key": "d", "name": "Diki", "url": "https://www.diki.pl/" },
-        { "key": "ff", "name": "ff20", "url": "http://surrenderat20.net/" },
-        { "key": "u", "name": "ugg", "url": "http://u.gg/" }
+        {
+          "key": "re",
+          "name": "Repo",
+          "url": "https://github.com/istir/tilde-5.4.0-react/tree/master"
+        },
+        { "key": "rj", "name": "ReactJS", "url": "https://reactjs.org/" },
+        { "key": "nj", "name": "nodeJS", "url": "https://nodejs.org/" }
       ]
     }
   ],
